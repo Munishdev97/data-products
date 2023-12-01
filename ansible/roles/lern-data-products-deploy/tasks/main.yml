@@ -41,7 +41,7 @@
 
 
 - name: Unarchive Ed Data Products
-  become: yes
+  become: true
   unarchive: src={{ playbook_dir}}/{{ analytics_ed_dataporducts_artifact }} dest={{ analytics.home }}/models-{{ model_version }} copy=yes group={{ analytics_group }} owner={{ analytics_user }}
   tags:
     - lern-dataproducts
@@ -193,7 +193,7 @@
 
 - name: Clean cron jobs
   command: crontab -r
-  ignore_errors: yes
+  ignore_errors: true
   tags:
     - default-jobs
     - spark-jobs
